@@ -1,0 +1,21 @@
+import React from 'react';
+import { cn } from '@/lib/utils';
+
+export const AppLogoIcon = React.forwardRef<
+    HTMLImageElement,
+    React.HTMLAttributes<HTMLImageElement>
+>(({ className, ...props }, ref) => {
+    return (
+        <img
+            ref={ref}
+            src="/logo_icon_dark.svg"
+            className={cn('w-6 h-6', className)}
+            alt="APP_NAME Logo Icon"
+            {...props}
+        />
+    );
+});
+
+AppLogoIcon.displayName = 'AppLogoIcon';
+
+export default AppLogoIcon;
