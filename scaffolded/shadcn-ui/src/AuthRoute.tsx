@@ -3,14 +3,18 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import { setUser } from '@/store/user-slice';
-import { LoadingScreen } from './LoadingScreen';
+import { LoadingScreen } from '@/components/app/LoadingScreen';
 import { ROUTE_PATHS } from '@/config/routes';
 
+type AuthRouteProps = Readonly<{
+    children: React.ReactNode;
+}>;
+
 /**
- * Component that checks user authentication status on app mount.
- * Redirects to appropriate route based on user status.
+ * Protected route wrapper that ensures user is authenticated.
+ * Assumes user data is already cached from InitialAuthCheck.
  */
-export function InitialAuthCheck() {
+export function AuthRoute({ children }: AuthRouteProps) {
     const { data: user, isLoading, isError, isSuccess } = useUser();
     const dispatch = useDispatch();
 
@@ -25,16 +29,10 @@ export function InitialAuthCheck() {
         return <LoadingScreen />;
     }
 
-    // If user exists and is successfully loaded, redirect to home
-    if (isSuccess && user) {
-        return <Navigate to={ROUTE_PATHS.HOME} replace />;
-    }
-
     // If no user or error, redirect to onboarding
-    if (isError || !user) {
+    if (isError || !user || !isSuccess) {
         return <Navigate to={ROUTE_PATHS.ONBOARDING} replace />;
     }
 
-    // Fallback to onboarding
-    return <Navigate to={ROUTE_PATHS.ONBOARDING} replace />;
+    return <>{children}</>;
 }

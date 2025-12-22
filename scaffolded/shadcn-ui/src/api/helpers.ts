@@ -1,5 +1,4 @@
 import { AxiosError } from 'axios';
-import { getErrorMessage } from '@/lib/error';
 
 /**
  * Type for API error response
@@ -74,7 +73,7 @@ export function getApiErrorMessage(
         }
     }
 
-    return getErrorMessage(error, defaultMessage);
+    return defaultMessage;
 }
 
 /**

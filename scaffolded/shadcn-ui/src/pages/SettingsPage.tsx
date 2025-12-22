@@ -5,7 +5,7 @@ import { Separator } from '@/components/ui/separator';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
-import { useUser } from '@/store/auth-slice';
+import { useUser } from '@/store/user-slice';
 import CurrentUserAvatar from '@/components/app/CurrentUserAvatar';
 import { User, Calendar, Key, Bell, Shield, Globe, Palette } from 'lucide-react';
 import { ThemeCustomizer } from '@/components/theme';

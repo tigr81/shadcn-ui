@@ -14,7 +14,7 @@ import {
     SidebarMenuItem,
     useSidebar,
 } from '@/components/ui/sidebar';
-import { useUser } from '@/store/auth-slice';
+import { useUser } from '@/store/user-slice';
 import { Bell, ChevronsUpDown, LogOut, Settings } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ROUTE_PATHS } from '@/config/routes';

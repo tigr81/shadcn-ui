@@ -1,6 +1,6 @@
 import { Typography } from '@/components/ui-system';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { useUser } from '@/store/auth-slice';
+import { useUser } from '@/store/user-slice';
 
 /**
  * Home page component - Template starter
