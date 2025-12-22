@@ -1,4 +1,4 @@
-import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { toast } from 'sonner';
 import { getApiErrorMessage } from '@/api/helpers';
 
@@ -63,3 +63,53 @@ export function useMakeApi<TData = unknown, TVariables = unknown>(
         data: mutation.data,
     };
 }
+
+
+export function useUser() {
+    const userQuery = useQuery({
+        queryKey: ['user'],
+        queryFn: async () => {
+            // Mocked user data
+            return {
+                firstname: 'John',
+                lastname: 'Doe',
+                initials: 'JD',
+                idx: 'mocked-user-id',
+                created_at: '2021-01-01',
+                updated_at: '2021-01-01',
+            };
+        },
+    });
+
+    return {
+        userQuery,
+        isLoading: userQuery.isPending,
+        isError: userQuery.isError,
+        isSuccess: userQuery.isSuccess,
+        error: userQuery.error,
+        data: userQuery.data,
+    }
+}
+
+
+export function useRegisterUser(onSuccess?: () => void) {
+    const registerUserMutation = useMutation({
+        mutationFn: (data: { firstname: string; lastname: string }) => Promise.resolve({ firstname: data.firstname, lastname: data.lastname }),
+        onSuccess: () => {
+            toast.success('Profilo creato con successo');
+            onSuccess?.();
+        },
+        onError: (error) => {
+            toast.error(getApiErrorMessage(error, 'Si è verificato un errore durante la creazione del profilo.'));
+        },
+    });
+
+    return {
+        registerUserMutation,
+        isLoading: registerUserMutation.isPending,
+        isError: registerUserMutation.isError,
+        isSuccess: registerUserMutation.isSuccess,
+        error: registerUserMutation.error,
+        data: registerUserMutation.data,
+    }
+}   

@@ -10,7 +10,6 @@
 import { z } from 'zod';
 import { DialogForm, FormTextField } from './index';
 import { useMakeApi } from '@/api/api';
-import { TagService, TagCreate } from '@/api/client';
 
 // Example 1: Using DialogForm with useMakeApi
 const createTagSchema = z.object({
@@ -22,10 +21,10 @@ type CreateTagForm = z.infer<typeof createTagSchema>;
 
 export function CreateTagDialogForm() {
     // Use the makeApi hook with toast notifications
-    const { mutateAsync, isLoading } = useMakeApi<TagCreate, TagCreate>(
-        (data) => TagService.createTagTagPost({ requestBody: data }),
+    const { mutateAsync, isLoading } = useMakeApi(
+        (data: CreateTagForm) => Promise.resolve({ label: data.label }),
         {
-            successMessage: (data) => `Tag "${data.label}" created successfully`,
+            successMessage: (data: { label: string }) => `Tag "${data.label}" created successfully`,
             errorMessage: 'Failed to create tag',
             invalidateQueries: [['tags']],
         }
@@ -74,10 +73,10 @@ export function CreateTagDialogForm() {
 // Example 2: Using useMakeApi directly in a component
 // eslint-disable-next-line react-refresh/only-export-components
 export function useCreateTagWithToast() {
-    return useMakeApi<TagCreate, TagCreate>(
-        (data) => TagService.createTagTagPost({ requestBody: data }),
+    return useMakeApi(
+        (data: CreateTagForm) => Promise.resolve({ label: data.label }),
         {
-            successMessage: (data) => `Tag "${data.label}" created successfully`,
+            successMessage: (data: { label: string }) => `Tag "${data.label}" created successfully`,
             errorMessage: 'Failed to create tag',
             invalidateQueries: [['tags']],
             onSuccess: (data) => {

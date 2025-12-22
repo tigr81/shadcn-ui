@@ -63,6 +63,12 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Skeleton } from '@/components/ui/skeleton';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Calendar } from '@/components/ui/calendar';
+import { CopyToClipboard } from '@/components/ui/copy-to-clipboard';
+import {
+    ResizableHandle,
+    ResizablePanel,
+    ResizablePanelGroup,
+} from '@/components/ui/resizable';
 import { Info, CheckCircle2, XCircle, Bold, Italic, Underline, Star } from 'lucide-react';
 
 /**
@@ -156,6 +162,178 @@ export default function ComponentsPage() {
                                     <Underline className="h-4 w-4" />
                                 </ToggleGroupItem>
                             </ToggleGroup>
+                        </CardContent>
+                    </Card>
+
+                    <Card>
+                        <CardHeader>
+                            <CardTitle>Copy to Clipboard</CardTitle>
+                            <CardDescription>Copy text to clipboard with visual feedback</CardDescription>
+                        </CardHeader>
+                        <CardContent className="space-y-6">
+                            <div className="space-y-3">
+                                <Typography variant="p" className="text-sm font-medium">
+                                    Button Mode
+                                </Typography>
+                                <div className="flex flex-wrap gap-2">
+                                    <CopyToClipboard
+                                        textToCopy="Hello, World!"
+                                        mode="button"
+                                        copyText="Copy"
+                                        copiedText="Copied!"
+                                    />
+                                    <CopyToClipboard
+                                        textToCopy="Hello, World!"
+                                        mode="button"
+                                        variant="secondary"
+                                        copyText="Copy"
+                                        copiedText="Copied!"
+                                    />
+                                    <CopyToClipboard
+                                        textToCopy="Hello, World!"
+                                        mode="button"
+                                        variant="outline"
+                                        copyText="Copy"
+                                        copiedText="Copied!"
+                                    />
+                                    <CopyToClipboard
+                                        textToCopy="Hello, World!"
+                                        mode="button"
+                                        variant="ghost"
+                                        copyText="Copy"
+                                        copiedText="Copied!"
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="space-y-3">
+                                <Typography variant="p" className="text-sm font-medium">
+                                    Icon Position
+                                </Typography>
+                                <div className="flex flex-wrap gap-2">
+                                    <CopyToClipboard
+                                        textToCopy="Text with icon on right"
+                                        mode="button"
+                                        iconPosition="right"
+                                        copyText="Copy"
+                                        copiedText="Copied!"
+                                    />
+                                    <CopyToClipboard
+                                        textToCopy="Text with icon on left"
+                                        mode="button"
+                                        iconPosition="left"
+                                        copyText="Copy"
+                                        copiedText="Copied!"
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="space-y-3">
+                                <Typography variant="p" className="text-sm font-medium">
+                                    Icon Mode
+                                </Typography>
+                                <div className="flex flex-wrap gap-2 items-center">
+                                    <CopyToClipboard
+                                        textToCopy="Small icon button"
+                                        mode="icon"
+                                        iconSize="sm"
+                                    />
+                                    <CopyToClipboard
+                                        textToCopy="Default icon button"
+                                        mode="icon"
+                                        iconSize="md"
+                                    />
+                                    <CopyToClipboard
+                                        textToCopy="Icon with secondary variant"
+                                        mode="icon"
+                                        variant="secondary"
+                                    />
+                                    <CopyToClipboard
+                                        textToCopy="Icon with outline variant"
+                                        mode="icon"
+                                        variant="outline"
+                                    />
+                                    <CopyToClipboard
+                                        textToCopy="Icon with ghost variant"
+                                        mode="icon"
+                                        variant="ghost"
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="space-y-3">
+                                <Typography variant="p" className="text-sm font-medium">
+                                    Icon Types
+                                </Typography>
+                                <div className="flex flex-wrap gap-2 items-center">
+                                    <CopyToClipboard
+                                        textToCopy="Using copy icon"
+                                        mode="icon"
+                                        iconType="copy"
+                                    />
+                                    <CopyToClipboard
+                                        textToCopy="Using clipboard icon"
+                                        mode="icon"
+                                        iconType="clipboard"
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="space-y-3">
+                                <Typography variant="p" className="text-sm font-medium">
+                                    Custom Tooltip
+                                </Typography>
+                                <div className="flex flex-wrap gap-2">
+                                    <CopyToClipboard
+                                        textToCopy="Custom tooltip text"
+                                        mode="button"
+                                        tooltipText="Successfully copied!"
+                                        copyText="Copy"
+                                        copiedText="Copied!"
+                                    />
+                                    <CopyToClipboard
+                                        textToCopy="No tooltip"
+                                        mode="button"
+                                        showTooltip={false}
+                                        copyText="Copy"
+                                        copiedText="Copied!"
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="space-y-3">
+                                <Typography variant="p" className="text-sm font-medium">
+                                    Disabled State
+                                </Typography>
+                                <div className="flex flex-wrap gap-2">
+                                    <CopyToClipboard
+                                        textToCopy={null}
+                                        mode="button"
+                                        copyText="Copy"
+                                        copiedText="Copied!"
+                                    />
+                                    <CopyToClipboard
+                                        textToCopy=""
+                                        mode="icon"
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="space-y-3">
+                                <Typography variant="p" className="text-sm font-medium">
+                                    Real-world Example
+                                </Typography>
+                                <div className="flex items-center gap-2 p-3 border rounded-md bg-muted/50">
+                                    <code className="text-sm flex-1">
+                                        npm install shadcn-ui
+                                    </code>
+                                    <CopyToClipboard
+                                        textToCopy="npm install shadcn-ui"
+                                        mode="icon"
+                                        iconSize="sm"
+                                    />
+                                </div>
+                            </div>
                         </CardContent>
                     </Card>
                 </TabsContent>
@@ -586,6 +764,116 @@ export default function ComponentsPage() {
                                     <Button>Action</Button>
                                 </CardFooter>
                             </Card>
+                        </CardContent>
+                    </Card>
+
+                    <Card>
+                        <CardHeader>
+                            <CardTitle>Resizable</CardTitle>
+                            <CardDescription>
+                                Accessible resizable panel groups and layouts with keyboard support
+                            </CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div className="flex flex-col gap-2">
+                                    <Typography className="text-sm font-medium">
+                                        Horizontal Panels
+                                    </Typography>
+                                    <ResizablePanelGroup
+                                        direction="horizontal"
+                                        className="w-full rounded-lg border"
+                                    >
+                                        <ResizablePanel defaultSize={50}>
+                                            <div className="flex h-[200px] items-center justify-center p-6">
+                                                <span className="font-semibold">Panel One</span>
+                                            </div>
+                                        </ResizablePanel>
+                                        <ResizableHandle />
+                                        <ResizablePanel defaultSize={50}>
+                                            <div className="flex h-[200px] items-center justify-center p-6">
+                                                <span className="font-semibold">Panel Two</span>
+                                            </div>
+                                        </ResizablePanel>
+                                    </ResizablePanelGroup>
+                                </div>
+
+                                <div className="flex flex-col gap-2">
+                                    <Typography className="text-sm font-medium">
+                                        Vertical Panels
+                                    </Typography>
+                                    <ResizablePanelGroup
+                                        direction="vertical"
+                                        className="min-h-[200px] w-full rounded-lg border"
+                                    >
+                                        <ResizablePanel defaultSize={25}>
+                                            <div className="flex h-full items-center justify-center p-6">
+                                                <span className="font-semibold">Header</span>
+                                            </div>
+                                        </ResizablePanel>
+                                        <ResizableHandle />
+                                        <ResizablePanel defaultSize={75}>
+                                            <div className="flex h-full items-center justify-center p-6">
+                                                <span className="font-semibold">Content</span>
+                                            </div>
+                                        </ResizablePanel>
+                                    </ResizablePanelGroup>
+                                </div>
+
+                                <div className="flex flex-col gap-2">
+                                    <Typography className="text-sm font-medium">
+                                        Nested Panels
+                                    </Typography>
+                                    <ResizablePanelGroup
+                                        direction="horizontal"
+                                        className="w-full rounded-lg border"
+                                    >
+                                        <ResizablePanel defaultSize={50}>
+                                            <div className="flex h-[200px] items-center justify-center p-6">
+                                                <span className="font-semibold">One</span>
+                                            </div>
+                                        </ResizablePanel>
+                                        <ResizableHandle />
+                                        <ResizablePanel defaultSize={50}>
+                                            <ResizablePanelGroup direction="vertical">
+                                                <ResizablePanel defaultSize={25}>
+                                                    <div className="flex h-full items-center justify-center p-6">
+                                                        <span className="font-semibold">Two</span>
+                                                    </div>
+                                                </ResizablePanel>
+                                                <ResizableHandle />
+                                                <ResizablePanel defaultSize={75}>
+                                                    <div className="flex h-full items-center justify-center p-6">
+                                                        <span className="font-semibold">Three</span>
+                                                    </div>
+                                                </ResizablePanel>
+                                            </ResizablePanelGroup>
+                                        </ResizablePanel>
+                                    </ResizablePanelGroup>
+                                </div>
+
+                                <div className="flex flex-col gap-2">
+                                    <Typography className="text-sm font-medium">
+                                        Handle with Icon
+                                    </Typography>
+                                    <ResizablePanelGroup
+                                        direction="horizontal"
+                                        className="min-h-[200px] w-full rounded-lg border"
+                                    >
+                                        <ResizablePanel defaultSize={25}>
+                                            <div className="flex h-full items-center justify-center p-6">
+                                                <span className="font-semibold">Sidebar</span>
+                                            </div>
+                                        </ResizablePanel>
+                                        <ResizableHandle withHandle />
+                                        <ResizablePanel defaultSize={75}>
+                                            <div className="flex h-full items-center justify-center p-6">
+                                                <span className="font-semibold">Content</span>
+                                            </div>
+                                        </ResizablePanel>
+                                    </ResizablePanelGroup>
+                                </div>
+                            </div>
                         </CardContent>
                     </Card>
                 </TabsContent>

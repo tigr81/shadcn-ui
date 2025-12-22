@@ -9,6 +9,7 @@ import { useUser } from '@/store/user-slice';
 import CurrentUserAvatar from '@/components/app/CurrentUserAvatar';
 import { User, Calendar, Key, Bell, Shield, Globe, Palette } from 'lucide-react';
 import { ThemeCustomizer } from '@/components/theme';
+import { CopyToClipboard } from '@/components/ui/copy-to-clipboard';
 
 /**
  * Settings page component - User profile and settings management
@@ -110,12 +111,23 @@ export default function SettingsPage() {
                                     <Label htmlFor="user-id">User ID</Label>
                                     <div className="flex items-center gap-2">
                                         <Key className="h-4 w-4 text-muted-foreground" />
-                                        <Input
-                                            id="user-id"
-                                            value={user.idx}
-                                            readOnly
-                                            className="bg-muted font-mono text-sm"
-                                        />
+                                        <div className="relative flex-1">
+                                            <Input
+                                                id="user-id"
+                                                value={user.idx}
+                                                readOnly
+                                                className="bg-muted font-mono text-sm pr-10"
+                                            />
+                                            <div className="absolute right-2 top-1/2 -translate-y-1/2">
+                                                <CopyToClipboard
+                                                    textToCopy={user.idx}
+                                                    mode="icon"
+                                                    iconSize="sm"
+                                                    variant="ghost"
+                                                    className="h-6 w-6"
+                                                />
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </CardContent>

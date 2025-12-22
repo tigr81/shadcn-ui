@@ -8,7 +8,7 @@ export const AppLogoIcon = React.forwardRef<
     return (
         <img
             ref={ref}
-            src="/logo_icon_dark.svg"
+            src="/logo_icon.svg"
             className={cn('w-6 h-6', className)}
             alt="APP_NAME Logo Icon"
             {...props}

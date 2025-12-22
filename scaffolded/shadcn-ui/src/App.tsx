@@ -7,10 +7,10 @@ import { ThemeProvider } from 'next-themes';
 import { Toaster } from '@/components/ui/sonner';
 import { ThemeCustomizationProvider } from '@/components/theme';
 import Routers from '@/Routers';
-import { OpenAPI } from '@/api/client';
+// import { OpenAPI } from '@/api/client';
 import axios from 'axios';
 
-OpenAPI.BASE = import.meta.env.VITE_API_BASE_URL;
+// OpenAPI.BASE = import.meta.env.VITE_API_BASE_URL;
 
 const queryClient = new QueryClient();
 
