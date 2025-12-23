@@ -41,7 +41,7 @@ const NavMainItem = ({ item }: { item: TNavMainItem }) => {
                       "flex items-center justify-between gap-2 w-full px-2 py-1.5 text-sm",
                       item.external && "underline"
                     )}
-                    {...(item.external && { target: '_blank' })}
+                    {...(item.external && { target: '_blank', rel: 'noopener noreferrer' })}
                 >
                     {item.iconStart && (
                         <div className="flex items-center gap-2">

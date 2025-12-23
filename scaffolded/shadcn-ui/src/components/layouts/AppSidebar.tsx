@@ -14,7 +14,7 @@ import { AppLogoIcon } from '@/components/icons';
 import { Link } from 'react-router-dom';
 import packageJSON from '@/../package.json';
 import { getNavItems, ROUTE_PATHS } from '@/config/routes';
-
+import { ExternalLink } from 'lucide-react';
 
 export function AppSidebar() {
     const navItems = useMemo(() => {
@@ -23,10 +23,10 @@ export function AppSidebar() {
             url: item.path,
             iconStart: item.icon,
             disabled: item.disabled,
+            external: item.external,
+            iconEnd: item.external ? ExternalLink : undefined,
         }));
     }, []);
-
-    console.log(navItems);
 
     return (
         <Sidebar collapsible="icon">

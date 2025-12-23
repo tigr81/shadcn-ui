@@ -1,4 +1,4 @@
-import { LucideIcon, Home, FileText, Database, Settings, Package, LayoutDashboard } from 'lucide-react';
+import { LucideIcon, Home, FileText, Database, Settings, Package, LayoutDashboard, Book } from 'lucide-react';
 import { ComponentType } from 'react';
 import HomePage from '@/pages/HomePage';
 import FormPage from '@/pages/FormPage';
@@ -173,6 +173,17 @@ const APP_ROUTES: RouteConfig[] = [
         requiresAuth: true,
         requiresOnboarding: true,
     },
+    {
+        id: 'DOCUMENTATION',
+        path: 'https://github.com/tigr81/shadcn-ui',
+        title: 'Documentation',
+        component: () => null,
+        icon: Book,
+        showInNav: true,
+        requiresAuth: true,
+        requiresOnboarding: true,
+        external: true,
+    }
     // {
     //     id: 'ABOUT',
     //     path: '/about',
