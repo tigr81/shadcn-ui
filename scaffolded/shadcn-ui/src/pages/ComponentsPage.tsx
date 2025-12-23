@@ -64,11 +64,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Calendar } from '@/components/ui/calendar';
 import { CopyToClipboard } from '@/components/ui/copy-to-clipboard';
-import {
-    ResizableHandle,
-    ResizablePanel,
-    ResizablePanelGroup,
-} from '@/components/ui/resizable';
+import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '@/components/ui/resizable';
 import { Info, CheckCircle2, XCircle, Bold, Italic, Underline, Star } from 'lucide-react';
 
 /**
@@ -168,7 +164,9 @@ export default function ComponentsPage() {
                     <Card>
                         <CardHeader>
                             <CardTitle>Copy to Clipboard</CardTitle>
-                            <CardDescription>Copy text to clipboard with visual feedback</CardDescription>
+                            <CardDescription>
+                                Copy text to clipboard with visual feedback
+                            </CardDescription>
                         </CardHeader>
                         <CardContent className="space-y-6">
                             <div className="space-y-3">
@@ -185,13 +183,6 @@ export default function ComponentsPage() {
                                     <CopyToClipboard
                                         textToCopy="Hello, World!"
                                         mode="button"
-                                        variant="secondary"
-                                        copyText="Copy"
-                                        copiedText="Copied!"
-                                    />
-                                    <CopyToClipboard
-                                        textToCopy="Hello, World!"
-                                        mode="button"
                                         variant="outline"
                                         copyText="Copy"
                                         copiedText="Copied!"
@@ -200,6 +191,13 @@ export default function ComponentsPage() {
                                         textToCopy="Hello, World!"
                                         mode="button"
                                         variant="ghost"
+                                        copyText="Copy"
+                                        copiedText="Copied!"
+                                    />
+                                    <CopyToClipboard
+                                        textToCopy="Hello, World!"
+                                        mode="button"
+                                        variant="destructive"
                                         copyText="Copy"
                                         copiedText="Copied!"
                                     />
@@ -312,10 +310,7 @@ export default function ComponentsPage() {
                                         copyText="Copy"
                                         copiedText="Copied!"
                                     />
-                                    <CopyToClipboard
-                                        textToCopy=""
-                                        mode="icon"
-                                    />
+                                    <CopyToClipboard textToCopy="" mode="icon" />
                                 </div>
                             </div>
 
@@ -324,9 +319,7 @@ export default function ComponentsPage() {
                                     Real-world Example
                                 </Typography>
                                 <div className="flex items-center gap-2 p-3 border rounded-md bg-muted/50">
-                                    <code className="text-sm flex-1">
-                                        npm install shadcn-ui
-                                    </code>
+                                    <code className="text-sm flex-1">npm install shadcn-ui</code>
                                     <CopyToClipboard
                                         textToCopy="npm install shadcn-ui"
                                         mode="icon"
