@@ -6,25 +6,17 @@ import {
     SidebarMenuItem,
 } from '@/components/ui/sidebar';
 import { cn } from '@/lib/utils';
-import { LucideIcon } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 import { Link, useMatch } from 'react-router-dom';
 import { Typography } from '@/components/ui-system';
-
-type TNavMainItem = {
-    title: string;
-    url: string;
-    iconStart: LucideIcon;
-    iconEnd?: LucideIcon;
-    external?: boolean;
-    disabled?: boolean;
-};
+import { NavItem } from '@/config/routes';
 
 type TNavMainProps = Readonly<{
-    items: TNavMainItem[];
+    items: NavItem[];
 }>;
 
-const NavMainItem = ({ item }: { item: TNavMainItem }) => {
-    const match = useMatch(`${item.url}/*`);
+const NavMainItem = ({ item }: { item: NavItem }) => {
+    const match = useMatch(`${item.path}/*`);
     const isActive = !!match;
     return (
         <SidebarMenuItem>
@@ -36,21 +28,21 @@ const NavMainItem = ({ item }: { item: TNavMainItem }) => {
                 className="data-[disabled]:pointer-events-none data-[disabled]:opacity-50"
             >
                 <Link
-                    to={item.url}
+                    to={item.path}
                     className={cn(
                       "flex items-center justify-between gap-2 w-full px-2 py-1.5 text-sm",
                       item.external && "underline"
                     )}
                     {...(item.external && { target: '_blank', rel: 'noopener noreferrer' })}
                 >
-                    {item.iconStart && (
+                    {item.icon && (
                         <div className="flex items-center gap-2">
-                            <item.iconStart className="h-4 w-4 shrink-0" />
+                            <item.icon className="h-4 w-4 shrink-0" />
                             <Typography className='truncate text-medium'>{item.title}</Typography>
                         </div>
                     )}
-                    {!item.iconStart && <span>{item.title}</span>}
-                    {item.iconEnd && <item.iconEnd className="h-4 w-4 shrink-0" />}
+                    {!item.icon && <span>{item.title}</span>}
+                    {item.external && <ExternalLink className="h-4 w-4 shrink-0" />}
                 </Link>
             </SidebarMenuButton>
         </SidebarMenuItem>
