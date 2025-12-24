@@ -1,0 +1,4 @@
+{
+  "name": "shadcn-ui",
+  "package_name": "{{ cookiecutter.name.lower().replace(' ', '-').replace('_', '-') }}"
+}
