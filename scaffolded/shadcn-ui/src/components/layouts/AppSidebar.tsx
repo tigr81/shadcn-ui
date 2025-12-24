@@ -28,7 +28,7 @@ export function AppSidebar() {
                         <SidebarMenuButton
                             size="lg"
                             className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
-                            tooltip="APP_NAME"
+                            tooltip="shadcn-ui"
                             asChild
                         >
                             <Link
@@ -40,7 +40,7 @@ export function AppSidebar() {
                                     <AppLogoIcon />
                                 </div>
                                 <div className="grid flex-1 text-left text-sm leading-tight">
-                                    <span className="truncate font-semibold">APP_NAME</span>
+                                    <span className="truncate font-semibold">shadcn-ui</span>
                                     <div className="flex items-center gap-1">
                                         <span className="truncate text-xs text-sidebar-foreground/60 font-mono">
                                             v{packageJSON.version}

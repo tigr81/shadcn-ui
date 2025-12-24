@@ -28,7 +28,7 @@ export function AppSidebar() {
                         <SidebarMenuButton
                             size="lg"
                             className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
-                            tooltip="{{cookiecutter.name}}"
+                            tooltip="{{cookiecutter.app_name}}"
                             asChild
                         >
                             <Link
@@ -40,7 +40,7 @@ export function AppSidebar() {
                                     <AppLogoIcon />
                                 </div>
                                 <div className="grid flex-1 text-left text-sm leading-tight">
-                                    <span className="truncate font-semibold">{{cookiecutter.name}}</span>
+                                    <span className="truncate font-semibold">{{cookiecutter.app_name}}</span>
                                     <div className="flex items-center gap-1">
                                         <span className="truncate text-xs text-sidebar-foreground/60 font-mono">
                                             v{packageJSON.version}

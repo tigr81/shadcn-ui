@@ -1,4 +1,11 @@
 {
   "name": "shadcn-ui",
-  "package_name": "{{ cookiecutter.name.lower().replace(' ', '-').replace('_', '-') }}"
+  "package_name": "{{ cookiecutter.name.lower().replace(' ', '-').replace('_', '-') }}",
+  "app_name": "{{ cookiecutter.name }}",
+  "_copy_without_render": [
+    "src/components/ui/*.tsx",
+    "src/components/forms/*.tsx",
+    "src/components/theme/*.tsx",
+    "src/pages/*"
+  ]
 }

@@ -10,7 +10,7 @@ export const AppLogoIcon = React.forwardRef<
             ref={ref}
             src="/logo_icon.svg"
             className={cn('w-6 h-6', className)}
-            alt="{{cookiecutter.name}} Logo Icon"
+            alt="{{cookiecutter.app_name}} Logo Icon"
             {...props}
         />
     );
